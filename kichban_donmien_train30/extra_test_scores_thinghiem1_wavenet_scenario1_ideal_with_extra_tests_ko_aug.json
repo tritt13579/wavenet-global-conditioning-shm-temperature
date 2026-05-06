@@ -1,0 +1,214 @@
+{
+  "thinghiem_L0minusdelta": {
+    "loss": 1.9443171033319437,
+    "acc": 0.3018867924528302,
+    "scores": {
+      "accuracy": 0.3018867924528302,
+      "precision": 0.29381828770597784,
+      "recall": 0.3018867924528302,
+      "f1score": 0.24648069202976866,
+      "confusion": [
+        [
+          32,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          17,
+          14,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          14,
+          4,
+          15,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          6,
+          0,
+          1,
+          25,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          3,
+          30,
+          0,
+          0
+        ],
+        [
+          0,
+          13,
+          0,
+          0,
+          0,
+          14,
+          0,
+          6
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          14,
+          9,
+          11,
+          0
+        ],
+        [
+          18,
+          15,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "meta": {
+      "domain": "thinghiem_L0minusdelta",
+      "samples": 265,
+      "class_files": {
+        "khong_m": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0minusdelta/khong_m.npy",
+        "m1": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0minusdelta/m1.npy",
+        "m1m2": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0minusdelta/m1m2.npy",
+        "m1m2m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0minusdelta/m1m2m3.npy",
+        "m1m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0minusdelta/m1m3.npy",
+        "m2": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0minusdelta/m2.npy",
+        "m2m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0minusdelta/m2m3.npy",
+        "m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0minusdelta/m3.npy"
+      }
+    }
+  },
+  "thinghiem_L0plusdelta": {
+    "loss": 2.77691139235641,
+    "acc": 0.24242424242424243,
+    "scores": {
+      "accuracy": 0.24242424242424243,
+      "precision": 0.13561504678828937,
+      "recall": 0.24242424242424243,
+      "f1score": 0.17348235810597049,
+      "confusion": [
+        [
+          31,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          13,
+          19,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          17,
+          5,
+          11,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          29,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          1,
+          31,
+          0,
+          0
+        ],
+        [
+          0,
+          23,
+          0,
+          0,
+          0,
+          10,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          16,
+          14,
+          3,
+          0
+        ],
+        [
+          17,
+          15,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      ]
+    },
+    "meta": {
+      "domain": "thinghiem_L0plusdelta",
+      "samples": 264,
+      "class_files": {
+        "khong_m": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0plusdelta/khong_m.npy",
+        "m1": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0plusdelta/m1.npy",
+        "m1m2": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0plusdelta/m1m2.npy",
+        "m1m2m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0plusdelta/m1m2m3.npy",
+        "m1m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0plusdelta/m1m3.npy",
+        "m2": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0plusdelta/m2.npy",
+        "m2m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0plusdelta/m2m3.npy",
+        "m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0plusdelta/m3.npy"
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "dataset_name": "thinghiem1",
+  "model_name": "wavenet_global_temp",
+  "scenario_name": "scenario1_multitemp_split70_15_15",
+  "aug_tag": "ko_aug",
+  "version": "v4",
+  "device": "cuda",
+  "classes": [
+    "khong_m",
+    "m1",
+    "m1m2",
+    "m1m2m3",
+    "m1m3",
+    "m2",
+    "m2m3",
+    "m3"
+  ],
+  "best_epoch": 81,
+  "best_val_acc": 0.92,
+  "best_val_loss": 0.2898226837813854,
+  "test_loss": 0.6532769799232483,
+  "test_acc": 0.7986111111111112,
+  "dataset_root": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp",
+  "config": {
+    "dataset_name": "thinghiem1",
+    "model_name": "wavenet_global_temp",
+    "scenario_name": "scenario1_multitemp_split70_15_15",
+    "aug_tag": "ko_aug",
+    "data": {
+      "root": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp",
+      "domains": [
+        "thinghiem_L0",
+        "thinghiem_L0minusdelta",
+        "thinghiem_L0plusdelta"
+      ],
+      "signal_channels": 4,
+      "window": 1024,
+      "seed": 1,
+      "return_ct": false,
+      "use_temperature_aux": false,
+      "eps": 1e-08
+    },
+    "training": {
+      "batch_size": 32,
+      "epochs": 100,
+      "learning_rate": 0.001,
+      "weight_decay": 0.0,
+      "label_smoothing": 0.0,
+      "num_workers": 0,
+      "global_seed": 1,
+      "split_seed": 1,
+      "local_centering": true,
+      "local_scaling": true
+    },
+    "model": {
+      "num_filters": 64,
+      "kernel_size": 2,
+      "number_of_blocks": 1,
+      "residuals_per_block": 4,
+      "downsample_factor": 4,
+      "pool_type": "avg",
+      "dropout": 0.0,
+      "use_temperature_aux": false,
+      "conditioning": "global"
+    },
+    "use_amp": false
+  },
+  "meta": {
+    "scenario": "scenario1_multitemp_split70_15_15",
+    "domains": [
+      "thinghiem_L0",
+      "thinghiem_L0minusdelta",
+      "thinghiem_L0plusdelta"
+    ],
+    "train_samples": 553,
+    "val_samples": 100,
+    "test_samples": 144,
+    "class_files": {
+      "thinghiem_L0": {
+        "khong_m": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0/khong_m.npy",
+        "m1": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0/m1.npy",
+        "m1m2": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0/m1m2.npy",
+        "m1m2m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0/m1m2m3.npy",
+        "m1m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0/m1m3.npy",
+        "m2": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0/m2.npy",
+        "m2m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0/m2m3.npy",
+        "m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0/m3.npy"
+      },
+      "thinghiem_L0minusdelta": {
+        "khong_m": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0minusdelta/khong_m.npy",
+        "m1": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0minusdelta/m1.npy",
+        "m1m2": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0minusdelta/m1m2.npy",
+        "m1m2m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0minusdelta/m1m2m3.npy",
+        "m1m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0minusdelta/m1m3.npy",
+        "m2": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0minusdelta/m2.npy",
+        "m2m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0minusdelta/m2m3.npy",
+        "m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0minusdelta/m3.npy"
+      },
+      "thinghiem_L0plusdelta": {
+        "khong_m": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0plusdelta/khong_m.npy",
+        "m1": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0plusdelta/m1.npy",
+        "m1m2": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0plusdelta/m1m2.npy",
+        "m1m2m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0plusdelta/m1m2m3.npy",
+        "m1m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0plusdelta/m1m3.npy",
+        "m2": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0plusdelta/m2.npy",
+        "m2m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0plusdelta/m2m3.npy",
+        "m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_multitemp_split70_15_15_global_temp/thinghiem_L0plusdelta/m3.npy"
+      }
+    },
+    "window_stride": 1024,
+    "use_temperature_aux": false,
+    "domain_temperature_c": {
+      "thinghiem_L0": 30.0,
+      "thinghiem_L0minusdelta": 25.0,
+      "thinghiem_L0plusdelta": 35.0
+    }
+  }
+}
