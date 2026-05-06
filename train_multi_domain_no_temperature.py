@@ -19,27 +19,27 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader, Dataset
 from tqdm.auto import tqdm
 
-DATASET_NAME = "thinghiem1"
+DATASET_NAME = "experiment1"
 MODEL_NAME = "wavenet_global_temp"
-SCENARIO_NAME = "kichban_khongnhiet_split70_15_15"
-AUG_TAG = "ko_aug"
+SCENARIO_NAME = "multi_domain_no_temperature_split70_15_15"
+AUG_TAG = "no_aug"
 KAGGLE_HISTORY_DIR = "/kaggle/working/History"
 KAGGLE_WORKING_DATASET_ROOT = "/kaggle/working/DatasetPDT"
-RAW_DATASET_ENV = "THINGHIEM1_DATASET_ROOT"
-RAW_ROOT_CANDIDATES = ["thinghiem1", "/kaggle/input/datasets/trtrnthanh/pasco-temp-dataset"]
-TRAIN_VAL_TEST_DOMAIN = "thinghiem_L0"
-EXTRA_TEST_DOMAINS = ["thinghiem_L0minusdelta", "thinghiem_L0plusdelta"]
+RAW_DATASET_ENV = "EXPERIMENT1_DATASET_ROOT"
+RAW_ROOT_CANDIDATES = ["experiment1", "/kaggle/input/datasets/trtrnthanh/pasco-temp-dataset"]
+TRAIN_VAL_TEST_DOMAIN = "experiment_30c"
+EXTRA_TEST_DOMAINS = ["experiment_25c", "experiment_35c"]
 EXPECTED_DOMAINS = [TRAIN_VAL_TEST_DOMAIN] + EXTRA_TEST_DOMAINS
 EXPECTED_SIGNAL_CHANNELS = 4
 TEMPERATURE_COLUMN_NAME = "temperature_c"
 DOMAIN_TEMPERATURE_C = {
-    "thinghiem_L0": 30.0,
-    "thinghiem_L0minusdelta": 25.0,
-    "thinghiem_L0plusdelta": 35.0,
+    "experiment_30c": 30.0,
+    "experiment_25c": 25.0,
+    "experiment_35c": 35.0,
 }
 ACC_SENSOR_KEYS = ["946-449", "964-462", "969-321", "966-489"]
 CSV_SEP_CANDIDATES = [",", ";", None]
-USE_TEMPERATURE_AUX = True
+USE_TEMPERATURE_AUX = False
 MULTI_TRAIN_DOMAINS = EXPECTED_DOMAINS
 
 
@@ -50,7 +50,7 @@ def normalize_col_name(name: str) -> str:
 def resolve_dataset_root(candidate: str, expected_domains: list[str]) -> Path | None:
     root = Path(candidate)
     direct = root
-    nested = root / "thinghiem1"
+    nested = root / "experiment1"
     for path in (direct, nested):
         if path.is_dir() and all((path / domain).is_dir() for domain in expected_domains):
             return path

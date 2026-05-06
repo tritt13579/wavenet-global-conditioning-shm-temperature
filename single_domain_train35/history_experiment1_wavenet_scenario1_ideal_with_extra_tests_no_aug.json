@@ -415,11 +415,11 @@
   "run_dir": "/kaggle/working/History/v3",
   "version": "v3",
   "extra_tests": {
-    "thinghiem_L0minusdelta": {
+    "experiment_L0_minus_delta": {
       "loss": 0.6662636734404654,
       "acc": 0.690566037735849
     },
-    "thinghiem_L0": {
+    "experiment_L0": {
       "loss": 1.1143628945991175,
       "acc": 0.664179104477612
     }

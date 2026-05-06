@@ -1,5 +1,5 @@
 {
-  "thinghiem_L0minusdelta": {
+  "experiment_L0_minus_delta": {
     "loss": 0.6662636734404654,
     "acc": 0.690566037735849,
     "scores": {
@@ -91,21 +91,21 @@
       ]
     },
     "meta": {
-      "domain": "thinghiem_L0minusdelta",
+      "domain": "experiment_L0_minus_delta",
       "samples": 265,
       "class_files": {
-        "khong_m": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0minusdelta/khong_m.npy",
-        "m1": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0minusdelta/m1.npy",
-        "m1m2": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0minusdelta/m1m2.npy",
-        "m1m2m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0minusdelta/m1m2m3.npy",
-        "m1m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0minusdelta/m1m3.npy",
-        "m2": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0minusdelta/m2.npy",
-        "m2m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0minusdelta/m2m3.npy",
-        "m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0minusdelta/m3.npy"
+        "no_damage": "/kaggle/working/Experiment1Dataset_scenario1_with_extra_tests/experiment_L0_minus_delta/no_damage.npy",
+        "m1": "/kaggle/working/Experiment1Dataset_scenario1_with_extra_tests/experiment_L0_minus_delta/m1.npy",
+        "m1m2": "/kaggle/working/Experiment1Dataset_scenario1_with_extra_tests/experiment_L0_minus_delta/m1m2.npy",
+        "m1m2m3": "/kaggle/working/Experiment1Dataset_scenario1_with_extra_tests/experiment_L0_minus_delta/m1m2m3.npy",
+        "m1m3": "/kaggle/working/Experiment1Dataset_scenario1_with_extra_tests/experiment_L0_minus_delta/m1m3.npy",
+        "m2": "/kaggle/working/Experiment1Dataset_scenario1_with_extra_tests/experiment_L0_minus_delta/m2.npy",
+        "m2m3": "/kaggle/working/Experiment1Dataset_scenario1_with_extra_tests/experiment_L0_minus_delta/m2m3.npy",
+        "m3": "/kaggle/working/Experiment1Dataset_scenario1_with_extra_tests/experiment_L0_minus_delta/m3.npy"
       }
     }
   },
-  "thinghiem_L0": {
+  "experiment_L0": {
     "loss": 1.1143628945991175,
     "acc": 0.664179104477612,
     "scores": {
@@ -197,17 +197,17 @@
       ]
     },
     "meta": {
-      "domain": "thinghiem_L0",
+      "domain": "experiment_L0",
       "samples": 268,
       "class_files": {
-        "khong_m": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0/khong_m.npy",
-        "m1": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0/m1.npy",
-        "m1m2": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0/m1m2.npy",
-        "m1m2m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0/m1m2m3.npy",
-        "m1m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0/m1m3.npy",
-        "m2": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0/m2.npy",
-        "m2m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0/m2m3.npy",
-        "m3": "/kaggle/working/DatasetPDT_Thinghiem1_scenario1_with_extra_tests/thinghiem_L0/m3.npy"
+        "no_damage": "/kaggle/working/Experiment1Dataset_scenario1_with_extra_tests/experiment_L0/no_damage.npy",
+        "m1": "/kaggle/working/Experiment1Dataset_scenario1_with_extra_tests/experiment_L0/m1.npy",
+        "m1m2": "/kaggle/working/Experiment1Dataset_scenario1_with_extra_tests/experiment_L0/m1m2.npy",
+        "m1m2m3": "/kaggle/working/Experiment1Dataset_scenario1_with_extra_tests/experiment_L0/m1m2m3.npy",
+        "m1m3": "/kaggle/working/Experiment1Dataset_scenario1_with_extra_tests/experiment_L0/m1m3.npy",
+        "m2": "/kaggle/working/Experiment1Dataset_scenario1_with_extra_tests/experiment_L0/m2.npy",
+        "m2m3": "/kaggle/working/Experiment1Dataset_scenario1_with_extra_tests/experiment_L0/m2m3.npy",
+        "m3": "/kaggle/working/Experiment1Dataset_scenario1_with_extra_tests/experiment_L0/m3.npy"
       }
     }
   }

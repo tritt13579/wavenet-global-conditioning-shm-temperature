@@ -19,16 +19,16 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader, Dataset
 from tqdm.auto import tqdm
 
-DATASET_NAME = "thinghiem1"
+DATASET_NAME = "experiment1"
 MODEL_NAME = "wavenet"
-SCENARIO_NAME = "kichban_donmien_split70_15_15"
-AUG_TAG = "ko_aug"
+SCENARIO_NAME = "single_domain_split70_15_15"
+AUG_TAG = "no_aug"
 KAGGLE_HISTORY_DIR = "/kaggle/working/History"
 KAGGLE_WORKING_DATASET_ROOT = "/kaggle/working/DatasetPDT"
-RAW_DATASET_ENV = "THINGHIEM1_DATASET_ROOT"
-RAW_ROOT_CANDIDATES = ["thinghiem1", "/kaggle/input/datasets/trtrnthanh/pasco-temp-dataset"]
-TRAIN_VAL_TEST_DOMAIN = "thinghiem_L0"
-EXTRA_TEST_DOMAINS = ["thinghiem_L0minusdelta", "thinghiem_L0plusdelta"]
+RAW_DATASET_ENV = "EXPERIMENT1_DATASET_ROOT"
+RAW_ROOT_CANDIDATES = ["experiment1", "/kaggle/input/datasets/trtrnthanh/pasco-temp-dataset"]
+TRAIN_VAL_TEST_DOMAIN = "experiment_30c"
+EXTRA_TEST_DOMAINS = ["experiment_25c", "experiment_35c"]
 EXPECTED_DOMAINS = [TRAIN_VAL_TEST_DOMAIN] + EXTRA_TEST_DOMAINS
 EXPECTED_CHANNELS = 4
 ACC_SENSOR_KEYS = ["946-449", "964-462", "969-321", "966-489"]
@@ -42,7 +42,7 @@ def normalize_col_name(name: str) -> str:
 def resolve_dataset_root(candidate: str, expected_domains: list[str]) -> Path | None:
     root = Path(candidate)
     direct = root
-    nested = root / "thinghiem1"
+    nested = root / "experiment1"
     for path in (direct, nested):
         if path.is_dir() and all((path / domain).is_dir() for domain in expected_domains):
             return path
@@ -289,13 +289,13 @@ def plot_combined_confusion_matrices(items: list[dict], save_path: str) -> None:
         raise ValueError("Need at least one confusion matrix item.")
 
     plt.rcParams.update({
-        "font.size": 18,
-        "axes.labelsize": 24,
-        "xtick.labelsize": 20,
-        "ytick.labelsize": 20,
+        "font.size": 24,
+        "axes.labelsize": 30,
+        "xtick.labelsize": 26,
+        "ytick.labelsize": 26,
     })
 
-    fig, axes = plt.subplots(1, len(items), figsize=(8.6 * len(items), 8.8), dpi=200)
+    fig, axes = plt.subplots(1, len(items), figsize=(9.6 * len(items), 9.8), dpi=260)
     if len(items) == 1:
         axes = [axes]
 
@@ -307,15 +307,15 @@ def plot_combined_confusion_matrices(items: list[dict], save_path: str) -> None:
         disp.plot(ax=ax, cmap="Blues", colorbar=False, values_format="d")
 
         ax.set_title("")
-        ax.set_xlabel("Predicted label", fontsize=24, labelpad=12)
-        ax.set_ylabel("True label", fontsize=24, labelpad=12)
+        ax.set_xlabel("Predicted label", fontsize=30, labelpad=14)
+        ax.set_ylabel("True label", fontsize=30, labelpad=14)
         ax.xaxis.tick_top()
         ax.xaxis.set_label_position("bottom")
         ax.tick_params(axis="x", labelrotation=0, pad=8)
         ax.tick_params(axis="y", pad=8)
 
         for text in ax.texts:
-            text.set_fontsize(20)
+            text.set_fontsize(26)
 
         panel = panel_labels[idx] if idx < len(panel_labels) else f"({idx + 1})"
         ax.text(
@@ -325,11 +325,11 @@ def plot_combined_confusion_matrices(items: list[dict], save_path: str) -> None:
             transform=ax.transAxes,
             ha="center",
             va="top",
-            fontsize=24,
+            fontsize=30,
         )
 
-    fig.subplots_adjust(left=0.04, right=0.995, top=0.92, bottom=0.12, wspace=0.08)
-    fig.savefig(save_path, dpi=500, bbox_inches="tight")
+    fig.subplots_adjust(left=0.04, right=0.995, top=0.93, bottom=0.13, wspace=0.10)
+    fig.savefig(save_path, dpi=700, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -769,7 +769,7 @@ def main() -> None:
         {
             "y_true": test_true,
             "y_probs": test_probs,
-            "caption": "Test 30\u00b0C",
+            "caption": r"Test 30$^\circ$C",
         }
     ]
     for extra_domain in EXTRA_TEST_DOMAINS:
@@ -793,10 +793,10 @@ def main() -> None:
             "scores": extra_scores,
             "meta": extra_meta,
         }
-        if extra_domain == "thinghiem_L0minusdelta":
-            caption = "Test 25\u00b0C"
-        elif extra_domain == "thinghiem_L0plusdelta":
-            caption = "Test 35\u00b0C"
+        if extra_domain == "experiment_25c":
+            caption = r"Test 25$^\circ$C"
+        elif extra_domain == "experiment_35c":
+            caption = r"Test 35$^\circ$C"
         else:
             caption = f"Test {extra_domain}"
         combined_confusion_items.append(

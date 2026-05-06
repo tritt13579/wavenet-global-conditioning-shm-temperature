@@ -1,0 +1,118 @@
+{
+  "dataset_name": "experiment1",
+  "model_name": "wavenet_global_temp",
+  "scenario_name": "scenario1_multitemp_split70_15_15",
+  "aug_tag": "no_aug",
+  "version": "v4",
+  "device": "cuda",
+  "classes": [
+    "no_damage",
+    "m1",
+    "m1m2",
+    "m1m2m3",
+    "m1m3",
+    "m2",
+    "m2m3",
+    "m3"
+  ],
+  "best_epoch": 81,
+  "best_val_acc": 0.92,
+  "best_val_loss": 0.2898226837813854,
+  "test_loss": 0.6532769799232483,
+  "test_acc": 0.7986111111111112,
+  "dataset_root": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp",
+  "config": {
+    "dataset_name": "experiment1",
+    "model_name": "wavenet_global_temp",
+    "scenario_name": "scenario1_multitemp_split70_15_15",
+    "aug_tag": "no_aug",
+    "data": {
+      "root": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp",
+      "domains": [
+        "experiment_L0",
+        "experiment_L0_minus_delta",
+        "experiment_L0_plus_delta"
+      ],
+      "signal_channels": 4,
+      "window": 1024,
+      "seed": 1,
+      "return_ct": false,
+      "use_temperature_aux": false,
+      "eps": 1e-08
+    },
+    "training": {
+      "batch_size": 32,
+      "epochs": 100,
+      "learning_rate": 0.001,
+      "weight_decay": 0.0,
+      "label_smoothing": 0.0,
+      "num_workers": 0,
+      "global_seed": 1,
+      "split_seed": 1,
+      "local_centering": true,
+      "local_scaling": true
+    },
+    "model": {
+      "num_filters": 64,
+      "kernel_size": 2,
+      "number_of_blocks": 1,
+      "residuals_per_block": 4,
+      "downsample_factor": 4,
+      "pool_type": "avg",
+      "dropout": 0.0,
+      "use_temperature_aux": false,
+      "conditioning": "global"
+    },
+    "use_amp": false
+  },
+  "meta": {
+    "scenario": "scenario1_multitemp_split70_15_15",
+    "domains": [
+      "experiment_L0",
+      "experiment_L0_minus_delta",
+      "experiment_L0_plus_delta"
+    ],
+    "train_samples": 553,
+    "val_samples": 100,
+    "test_samples": 144,
+    "class_files": {
+      "experiment_L0": {
+        "no_damage": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0/no_damage.npy",
+        "m1": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0/m1.npy",
+        "m1m2": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0/m1m2.npy",
+        "m1m2m3": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0/m1m2m3.npy",
+        "m1m3": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0/m1m3.npy",
+        "m2": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0/m2.npy",
+        "m2m3": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0/m2m3.npy",
+        "m3": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0/m3.npy"
+      },
+      "experiment_L0_minus_delta": {
+        "no_damage": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0_minus_delta/no_damage.npy",
+        "m1": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0_minus_delta/m1.npy",
+        "m1m2": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0_minus_delta/m1m2.npy",
+        "m1m2m3": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0_minus_delta/m1m2m3.npy",
+        "m1m3": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0_minus_delta/m1m3.npy",
+        "m2": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0_minus_delta/m2.npy",
+        "m2m3": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0_minus_delta/m2m3.npy",
+        "m3": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0_minus_delta/m3.npy"
+      },
+      "experiment_L0_plus_delta": {
+        "no_damage": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0_plus_delta/no_damage.npy",
+        "m1": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0_plus_delta/m1.npy",
+        "m1m2": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0_plus_delta/m1m2.npy",
+        "m1m2m3": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0_plus_delta/m1m2m3.npy",
+        "m1m3": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0_plus_delta/m1m3.npy",
+        "m2": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0_plus_delta/m2.npy",
+        "m2m3": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0_plus_delta/m2m3.npy",
+        "m3": "/kaggle/working/Experiment1Dataset_scenario1_multitemp_split70_15_15_global_temp/experiment_L0_plus_delta/m3.npy"
+      }
+    },
+    "window_stride": 1024,
+    "use_temperature_aux": false,
+    "domain_temperature_c": {
+      "experiment_L0": 30.0,
+      "experiment_L0_minus_delta": 25.0,
+      "experiment_L0_plus_delta": 35.0
+    }
+  }
+}

@@ -1,16 +1,16 @@
 # WaveNet Global Conditioning for SHM Under Temperature Variation
 
-This repository contains the code and experiment outputs for structural damage detection using a WaveNet-based deep learning model, with a focus on improving robustness under temperature variation through global conditioning.
+This repository contains code and experiment outputs for structural damage detection using a WaveNet-based deep learning model, with a focus on improving robustness under temperature variation through global conditioning.
 
 ## Overview
 
-The project studies damage classification from vibration/acceleration signals collected from a structure under multiple temperature conditions. The main idea is to compare:
+The project studies damage classification from vibration and acceleration signals collected from a structure under multiple temperature conditions. The main comparison includes:
 
 - a single-domain WaveNet baseline,
 - a multi-domain WaveNet without temperature-aware conditioning,
 - a multi-domain WaveNet with temperature used as a global conditioning variable.
 
-The current implementation uses:
+The implementation uses:
 
 - `PyTorch` for model training,
 - `NumPy` and `Pandas` for data processing,
@@ -19,21 +19,21 @@ The current implementation uses:
 
 ## Main Contribution
 
-The central contribution of this repository is a WaveNet classifier that integrates temperature as an auxiliary global conditioning input. This is designed to improve the reliability of structural damage detection when the operating temperature changes.
+The main contribution of this repository is a WaveNet classifier that integrates temperature as an auxiliary global conditioning input. This is intended to improve the reliability of structural damage detection when the operating temperature changes.
 
 In the current codebase:
 
-- `train_kichban_donmien.py` implements the single-domain baseline.
-- `train_kichban_khongnhiet.py` implements the multi-domain setting without temperature auxiliary input.
-- `train_kichban3_conhiet.py` implements the multi-domain setting with temperature-based global conditioning.
+- `train_single_domain.py` implements the single-domain baseline.
+- `train_multi_domain_no_temperature.py` implements the multi-domain setting without temperature auxiliary input.
+- `train_multi_domain_with_temperature.py` implements the multi-domain setting with temperature-based global conditioning.
 
 ## Experimental Settings
 
 The repository currently contains three main experiment groups:
 
 1. Single-domain training and evaluation
-   - Training, validation, and testing are performed on the reference domain `thinghiem_L0`.
-   - Additional testing is performed on `thinghiem_L0minusdelta` and `thinghiem_L0plusdelta`.
+   - Training, validation, and testing are performed on the reference domain `experiment_30c`.
+   - Additional testing is performed on `experiment_25c` and `experiment_35c`.
 
 2. Multi-domain training without temperature auxiliary input
    - Training samples are drawn from multiple temperature domains.
@@ -45,15 +45,15 @@ The repository currently contains three main experiment groups:
 
 The domain-temperature mapping used in the current scripts is:
 
-- `thinghiem_L0` -> `30 C`
-- `thinghiem_L0minusdelta` -> `25 C`
-- `thinghiem_L0plusdelta` -> `35 C`
+- `experiment_30c` -> `30 C`
+- `experiment_25c` -> `25 C`
+- `experiment_35c` -> `35 C`
 
 ## Damage Classes
 
 The current experiments use 8 classes:
 
-- `khong_m`
+- `no_damage`
 - `m1`
 - `m1m2`
 - `m1m2m3`
@@ -68,14 +68,14 @@ These labels are read directly from the dataset files.
 
 ```text
 .
-├── train_kichban_donmien.py
-├── train_kichban_khongnhiet.py
-├── train_kichban3_conhiet.py
-├── kichban_donmien_train25/
-├── kichban_donmien_train30/
-├── kichban_donmien_train35/
-├── kichban_damien_khongnhiet/
-└── kichban_damien_conhiet/
+|-- train_single_domain.py
+|-- train_multi_domain_no_temperature.py
+|-- train_multi_domain_with_temperature.py
+|-- single_domain_train25/
+|-- single_domain_train30/
+|-- single_domain_train35/
+|-- multi_domain_no_temperature/
+`-- multi_domain_with_temperature/
 ```
 
 The result folders contain experiment artifacts such as:
@@ -93,10 +93,10 @@ The result folders contain experiment artifacts such as:
 The scripts expect input data organized by domain, for example:
 
 ```text
-thinghiem1/
-├── thinghiem_L0/
-├── thinghiem_L0minusdelta/
-└── thinghiem_L0plusdelta/
+experiment1/
+|-- experiment_30c/
+|-- experiment_25c/
+`-- experiment_35c/
 ```
 
 Each domain folder contains source files for the damage classes. The scripts:
@@ -120,7 +120,7 @@ Recommended environment:
 - scikit-learn
 - tqdm
 
-You can install the main dependencies with:
+Install the main dependencies with:
 
 ```bash
 pip install torch numpy pandas matplotlib scikit-learn tqdm
@@ -131,40 +131,40 @@ pip install torch numpy pandas matplotlib scikit-learn tqdm
 ### 1. Single-domain baseline
 
 ```bash
-python train_kichban_donmien.py
+python train_single_domain.py
 ```
 
 ### 2. Multi-domain without temperature auxiliary input
 
 ```bash
-python train_kichban_khongnhiet.py
+python train_multi_domain_no_temperature.py
 ```
 
 ### 3. Multi-domain with temperature global conditioning
 
 ```bash
-python train_kichban3_conhiet.py
+python train_multi_domain_with_temperature.py
 ```
 
 ## Dataset Path Configuration
 
 The scripts support dataset root detection through:
 
-- the environment variable `THINGHIEM1_DATASET_ROOT`, or
-- built-in local/Kaggle candidate paths.
+- the environment variable `EXPERIMENT1_DATASET_ROOT`, or
+- built-in local or Kaggle candidate paths.
 
 If needed, set the dataset root manually before running:
 
 ```bash
-set THINGHIEM1_DATASET_ROOT=path\to\thinghiem1
-python train_kichban3_conhiet.py
+set EXPERIMENT1_DATASET_ROOT=path\to\experiment1
+python train_multi_domain_with_temperature.py
 ```
 
 On PowerShell:
 
 ```powershell
-$env:THINGHIEM1_DATASET_ROOT="path\to\thinghiem1"
-python train_kichban3_conhiet.py
+$env:EXPERIMENT1_DATASET_ROOT="path\to\experiment1"
+python train_multi_domain_with_temperature.py
 ```
 
 ## Model and Training Details
@@ -175,9 +175,9 @@ The current scripts use a WaveNet-style architecture with:
 - dilated residual blocks,
 - skip connections,
 - global average pooling,
-- classification head for damage state prediction.
+- a classification head for damage-state prediction.
 
-The current default settings in the scripts include:
+The current default settings include:
 
 - window size: `1024`
 - batch size: `32`
@@ -201,7 +201,6 @@ Each run saves:
 - confusion matrices,
 - learning curves,
 - run configuration metadata,
-- serialized best checkpoint.
+- the serialized best checkpoint.
 
-These outputs support result tracking and direct use in figures or tables for publications.
-
+These outputs support result tracking and direct reuse in figures or tables for publications.
